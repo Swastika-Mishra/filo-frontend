@@ -1,0 +1,30 @@
+.auth{
+    width: 25%;
+    padding: 20px;
+    border-radius: 10px;
+    border-color: blueviolet;
+    border-width: 10px;
+    position: absolute;
+    right: 15%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    top: 15%;
+}
+.toggle{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+.container{
+    width: 80%;
+    background-color: purple;
+    color: white;
+    height: 5vh;
+    border-top-left-radius: 30%;
+    border-top-right-radius: 30%;
+    /* transform: translateY(-180px);
+    transition: 0.8s ease-in-out; */
+    /* border-bottom-left-radius: 110px;
+    border-bottom-right-radius: 110px; */
+}

@@ -1,0 +1,43 @@
+#file-input{
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    padding: auto;
+}
+.drag-n-drop{
+    height: 32vh;
+    width: 64vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    border-radius: 2;
+    border-color: blue;
+    border-style: dashed;
+}
+.readytoupload{
+    color: green;
+    font-size: 700;
+    text-decoration: solid;
+}
+.upload{
+    background-color: blue;
+    color: white;
+    padding: 3px;
+    border-radius: 10px;
+    font-size: 500;
+}
+.progress{
+    position: 'absolute';
+    left: 0;
+    bottom: 0;
+    height: 200;
+    width: 100%;
+}
+.progress-bar{
+    background: 'linear-gradient(to right, #4dc0b5,#3490dc)';
+    height: 100%;
+}

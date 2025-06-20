@@ -1,0 +1,16 @@
+.inp{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.submit{
+    width: 25%;
+    border-radius: 10%;
+    border-color: gray;
+    padding: 5px;
+}
+
+.offscreen{
+    display: none;
+}
