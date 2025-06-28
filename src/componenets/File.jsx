@@ -61,8 +61,8 @@ function File() {
           const percentCompleted = Math.round((progressEvent.loaded*100)/progressEvent.total);
           setuploadprogress(percentCompleted);
         },
-        withCredentials: true,
-      })
+        //withCredentials: true,
+      });
       if(response.status===200){
         setuploadcomplete(true);
       }
@@ -75,7 +75,7 @@ function File() {
 
   const fetchFiles = () => {
     axiosPrivate
-      .get("/api/files", {withCredentials: true},)
+      .get("/api/files")
       .then((res) => setFiles(res.data))
       .catch((err) => console.error("Error fetching files", err));
   };
@@ -87,7 +87,7 @@ function File() {
   const deleteFiles = (filename) => {
     if (window.confirm(`Are you sure you want to delete "${filename}"?`)) {
       axiosPrivate
-        .delete(`/api/files/${filename}`, {withCredentials: true},)
+        .delete(`/api/files/${filename}`)
         .then(() => fetchFiles())
         .catch((err) => alert("Error deleting file: " + err.message));
     }
@@ -96,7 +96,7 @@ function File() {
   const downloadFiles = async (filename) => {
     try {
       const res = await axiosPrivate.get(`/api/files/${filename}`, {
-        withCredentials: true,
+        //withCredentials: true,
       });
 
       const url = res.data.url;
@@ -146,7 +146,7 @@ function File() {
 
         {uploadprogress>0 && (
           <div className='progress'>
-            <div className='progress-bar' style={{width: `${uploadprogress}`}}></div>
+            <div className='progress-bar' style={{width: `${uploadprogress}%`}}></div>
           </div>
           )
         }

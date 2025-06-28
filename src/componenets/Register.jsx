@@ -24,7 +24,7 @@ const Register = () => {
   const [matchfocus, setmatchfocus] = useState(false);
 
   const [errmsg, seterrmsg] = useState('');
-  const [success, setsuccess] = useState(false);
+  const [setsuccess] = useState(false);
 
   const navigate = useNavigate();
 
@@ -59,7 +59,7 @@ const Register = () => {
         const response = await axiosPrivate.post("http://localhost:3001/auth/register",
             JSON.stringify({user, pwd}),
             {
-                Headers: {'Content-Type': 'application/json'},
+                headers: {'Content-Type': 'application/json'},
                 withCredentials: true
             }
         );
@@ -75,7 +75,7 @@ const Register = () => {
         }
         seterrmsg('Registration failed');
         console.log(err);
-        navigate("/auth");
+        //navigate("/auth");
         errRef.current.focus();
     }
   };

@@ -18,7 +18,7 @@ const useFileAPI = () => {
   const uploadFile = async (formData) => {
     try {
       await axiosPrivate.post("/api/upload", formData);
-      await fetchFiles(); // ✅ refresh list after upload
+      await fetchFiles();
     } catch (err) {
       console.error("Upload failed", err);
     }
@@ -27,7 +27,7 @@ const useFileAPI = () => {
   const deleteFile = async (filename) => {
     try {
       await axiosPrivate.delete(`/api/files/${filename}`);
-      await fetchFiles(); // ✅ refresh list after deletion
+      await fetchFiles();
     } catch (err) {
       console.error("Delete failed", err);
     }

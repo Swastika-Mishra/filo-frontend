@@ -5,7 +5,7 @@ import useAxiosPrivate from "../hooks/useAxiosPrivate";
 import {useNavigate} from 'react-router-dom';
 
 const Login = () => {
-  const { setAuth } = useAuth();
+  const { setAuth, persist, setPersist } = useAuth();
   const axiosPrivate = useAxiosPrivate();
 
   const navigate = useNavigate();
@@ -40,9 +40,8 @@ const Login = () => {
       );
       console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.accessToken;
-      const roles = response?.data?.roles;
       //const refreshToken = response?.data?.refreshToken;
-      setAuth({user, pwd, roles, accessToken});
+      setAuth({user, pwd, accessToken});
       setUser("");
       setpwd("");
       //navigate(from, {replace: true});
@@ -56,6 +55,14 @@ const Login = () => {
       errRef.current.focus();
     }
   };
+
+  const togglePersist = () =>{
+    setPersist(prev => !prev);
+  }
+
+  useEffect(()=>{
+    localStorage.setItem("persist", persist);
+  },[persist])
 
   return (
     <div className="inp">
@@ -94,6 +101,15 @@ const Login = () => {
       <button type="submit" className="submit" onClick={handleLogin}>
         Log in
       </button>
+      <div className="persistCheck">
+        <input 
+        type="checkbox" 
+        id="persist"
+        onChange={togglePersist}
+        checked={persist}
+        />
+        <label htmlFor="persist">Trust this device?</label>
+      </div>
       <br />
     </div>
   );
