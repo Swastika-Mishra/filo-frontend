@@ -65,6 +65,8 @@ function File() {
       });
       if(response.status===200){
         setuploadcomplete(true);
+        setselectedfile(null);
+        fetchFiles();
       }
     } catch(error){
       //navigate("/login");
@@ -103,6 +105,7 @@ function File() {
       const a = document.createElement("a");
       a.href = url;
       a.download = filename;
+      a.target = "_blank"
       a.click();
       //window.URL.revokeObjectURL(url);
     } catch (err) {
@@ -171,6 +174,7 @@ function File() {
               <th>Last Modified</th>
               <th>Download</th>
               <th>Delete</th>
+              <th>Malware Scan Result</th>
             </tr>
           </thead>
           <tbody>
@@ -194,6 +198,7 @@ function File() {
                     Delete
                   </button>
                 </td>
+                <td>{file.malwareStatus}</td>
               </tr>
             ))}
           </tbody>
